@@ -1,18 +1,28 @@
-export default function Card({ questionCard, answerCard, setQuestionCard, setAnswerCard, flashcards }) {
+import React, { useState } from 'react';
+
+export default function Card({ question, answer }) {
+    const [isBlank, setIsBlank] = useState(true);
+    const [questionCard, setQuestionCard] = useState(false);
+    const [answerCard, setAnswerCard] = useState(false);
+
+    const cardClick = () => {
+        if (isBlank) {
+            setIsBlank(false);
+            setQuestionCard(true);
+        } else if (questionCard) {
+            setQuestionCard(false);
+            setAnswerCard(true);
+        } else if (answerCard) {
+            setAnswerCard(false);
+            setIsBlank(true);
+        }
+    }
+
     return (
-        <div>
-            {flashcards.map((card) => {
-                return (
-                    <div key={card.id}>
-                        <div onClick={() => setQuestionCard(!questionCard)}>
-                            {card.question}
-                        </div>
-                        <div onClick={() => setAnswerCard(!answerCard)}>
-                            {card.answer}
-                        </div>
-                    </div>
-                );
-            })}
+        <div onClick={cardClick}>
+            {isBlank && <div>Click to reveal question</div>}
+            {questionCard && <div>{question}</div>}
+            {answerCard && <div>{answer}</div>}
         </div>
     );
-}            
+}
