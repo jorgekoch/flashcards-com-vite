@@ -12,7 +12,9 @@ export default function App() {
         <Topo />
       </Header> 
       <Cards flashcards={FLASHCARDS} />
-      <Contador />
+      <Footer>
+        <Contador />
+      </Footer>
     </AppBody>
   )
   }
@@ -24,11 +26,23 @@ const AppBody = styled.div`
   justify-content: space-around;
   background-color: #FB6B6B;
   height: 100%;
+  position: relative;
+  margin-bottom: 70px;
+`
+const Footer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    bottom: 0px;
 `
 
 const Header = styled.header`
-width: 255.60552978515625;
-height: 60;
-top: -3041px;
-left: -635px;
+  width: 255.60552978515625;
+  height: 60;
+  top: -3041px;
+  left: -635px;
 `
