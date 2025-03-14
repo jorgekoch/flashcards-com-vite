@@ -7,7 +7,7 @@ import almost from '../images/icone_quase.png';
 import right from '../images/icone_certo.png';
 
 
-export default function Card({ question, answer }) {
+export default function Card({ question, answer, index, incrementCompletedCount }) {
 
     const [isBlank, setIsBlank] = useState(true);
     const [questionCard, setQuestionCard] = useState(false);
@@ -29,6 +29,7 @@ export default function Card({ question, answer }) {
         setIsBlank(true);
         setQuestionCard(false);
         setAnswerCard(false);
+        incrementCompletedCount();
     };
 
     const almostStatus = () => {
@@ -36,6 +37,7 @@ export default function Card({ question, answer }) {
         setIsBlank(true);
         setQuestionCard(false);
         setAnswerCard(false);
+        incrementCompletedCount();
     };
 
     const rightStatus = () => {
@@ -43,13 +45,14 @@ export default function Card({ question, answer }) {
         setIsBlank(true);
         setQuestionCard(false);
         setAnswerCard(false);
+        incrementCompletedCount();
     };
 
     return (
         <>
           {isBlank && 
             <BlankStyle status={status}>
-            <h1>Pergunta</h1>
+            <h1>Pergunta {index+1}</h1>
             {status === null ? <img src={play} alt="play" onClick={cardClick} /> 
             : status === "wrong" ? <img src={wrong} alt="wrong" /> 
             : status === "almost" ? <img src={almost} alt="almost" /> 

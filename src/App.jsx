@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Cards from "./components/Cards";
 import Contador from "./components/contador";
 import Topo from "./components/Topo";
@@ -6,14 +7,20 @@ import styled from "styled-components";
 
 
 export default function App() {
+  const [completedCount, setCompletedCount] = useState(0);
+
+  const incrementCompletedCount = () => {
+    setCompletedCount(prevCount => prevCount + 1);
+  };
+
   return (
     <AppBody>
       <Header>
         <Topo />
       </Header> 
-      <Cards flashcards={FLASHCARDS} />
+      <Cards flashcards={FLASHCARDS} incrementCompletedCount={incrementCompletedCount} />
       <Footer>
-        <Contador />
+        <Contador completedCount={completedCount} flashcards={FLASHCARDS}/>
       </Footer>
     </AppBody>
   )

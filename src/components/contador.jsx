@@ -1,9 +1,11 @@
+import React from 'react';
 import styled from "styled-components"
 
-export default function Contador() {
+export default function Contador({ completedCount, flashcards }) {
+
     return (
         <div>
-        <CountStyle>CONCLUÍDOS</CountStyle>
+        <CountStyle>{ completedCount }/{flashcards.length} CONCLUÍDOS</CountStyle>
         </div>
     )
 }

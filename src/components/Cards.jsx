@@ -1,15 +1,17 @@
 import React from 'react';
 import Card from "./Card";
 
-export default function Cards(props) {
+export default function Cards({ flashcards, incrementCompletedCount }) {
     return (
         <div>
-            {props.flashcards.map((flashcard) => {
+            {flashcards.map((flashcard, index) => {
                 return (
                     <Card 
                         key={flashcard.id} 
+                        index={index}
                         question={flashcard.question} 
                         answer={flashcard.answer} 
+                        incrementCompletedCount={incrementCompletedCount}
                     />
                 );
             })}
