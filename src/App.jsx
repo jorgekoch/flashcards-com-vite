@@ -32,7 +32,7 @@ const AppBody = styled.div`
   align-items: center;
   justify-content: space-around;
   background-color: #FB6B6B;
-  height: 100%;
+  height: 100vh;
   position: relative;
   margin-bottom: 70px;
 `
@@ -42,9 +42,10 @@ const Footer = styled.div`
     justify-content: center;
     position: fixed;
     background-color: white;
-    height: 70px;
     width: 100%;
+    height: 70px;
     bottom: 0px;
+
 `
 
 const Header = styled.header`
