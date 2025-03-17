@@ -32,9 +32,10 @@ const AppBody = styled.div`
   align-items: center;
   justify-content: space-around;
   background-color: #FB6B6B;
-  height: 100vh;
+  min-height: 100vh; /* Garante pelo menos a altura da tela */
+  overflow-y: auto; /* Permite rolagem se o conteúdo for maior que a tela */
   position: relative;
-  margin-bottom: 70px;
+  padding-bottom: 70px; /* Evita que o footer cubra conteúdo */
 `
 const Footer = styled.div`
     display: flex;
