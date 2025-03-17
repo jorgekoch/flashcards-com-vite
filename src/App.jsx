@@ -9,18 +9,19 @@ import styled from "styled-components";
 export default function App() {
   const [completedCount, setCompletedCount] = useState(0);
 
-  const incrementCompletedCount = () => {
-    setCompletedCount(prevCount => prevCount + 1);
-  };
 
   return (
     <AppBody>
       <Header>
         <Topo />
       </Header> 
-      <Cards flashcards={FLASHCARDS} incrementCompletedCount={incrementCompletedCount} />
+      <Cards 
+      flashcards={FLASHCARDS} 
+      setCompletedCount={setCompletedCount} />
       <Footer>
-        <Contador completedCount={completedCount} flashcards={FLASHCARDS}/>
+        <Contador 
+        completedCount={completedCount} 
+        flashcards={FLASHCARDS}/>
       </Footer>
     </AppBody>
   )
@@ -32,11 +33,12 @@ const AppBody = styled.div`
   align-items: center;
   justify-content: space-around;
   background-color: #FB6B6B;
-  min-height: 100vh; /* Garante pelo menos a altura da tela */
-  overflow-y: auto; /* Permite rolagem se o conteúdo for maior que a tela */
+  min-height: 100vh; 
+  overflow-y: auto; 
   position: relative;
-  padding-bottom: 70px; /* Evita que o footer cubra conteúdo */
+  padding-bottom: 70px; 
 `
+
 const Footer = styled.div`
     display: flex;
     align-items: center;

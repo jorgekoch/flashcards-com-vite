@@ -7,13 +7,18 @@ import almost from '../images/icone_quase.png';
 import right from '../images/icone_certo.png';
 
 
-export default function Card({ question, answer, index, incrementCompletedCount }) {
+export default function Card({ question, answer, index, setCompletedCount }) {
 
     const [isBlank, setIsBlank] = useState(true);
     const [questionCard, setQuestionCard] = useState(false);
     const [answerCard, setAnswerCard] = useState(false);
     const [status, setStatus] = useState(null);
 
+    const incrementCompletedCount = () => {
+        setCompletedCount(prevCount => prevCount + 1);
+      };
+
+      
     const cardClick = () => {
         if (isBlank) {
             setIsBlank(false);

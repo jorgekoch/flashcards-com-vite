@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from "./Card";
 
-export default function Cards({ flashcards, incrementCompletedCount }) {
+export default function Cards({ flashcards, setCompletedCount }) {
     return (
         <div>
             {flashcards.map((flashcard, index) => {
@@ -11,7 +11,7 @@ export default function Cards({ flashcards, incrementCompletedCount }) {
                         index={index}
                         question={flashcard.question} 
                         answer={flashcard.answer} 
-                        incrementCompletedCount={incrementCompletedCount}
+                        setCompletedCount={setCompletedCount}
                     />
                 );
             })}
